@@ -27,6 +27,36 @@ public class Question5
      */
      
     Scanner in = new Scanner(System.in);
+    int num = in.nextInt();
+    int[] intList = new int[num];
+    int[] occurrenceList = new int[num];
+    for(int i = 0; i < num; i++){
+     int input = in.nextInt();
+     intList[i] = input;    
+    }
+    
+    for(int i = 0; i < num; i++){
+     int count = 0;
+     for(int y = 0; y < num; y++){
+       if(intList[i] == intList[y]){
+        count++;
+       }
+     }
+     occurrenceList[i] = count;
+    }
+    
+    int amount = occurrenceList[0];
+    int index = 0;
+    for(int i = 0; i < num; i++){
+     if(i+1 == num){
+       break;
+     }
+     if(amount < occurrenceList[i+1]){
+      amount = occurrenceList[i+1];
+      index = i+1;
+     }
+    }
+    System.out.println(intList[index]);
     
   }
 }
